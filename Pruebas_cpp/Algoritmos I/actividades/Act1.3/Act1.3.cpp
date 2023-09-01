@@ -111,20 +111,7 @@ void MergeyGuarda(const std::vector<int>& dias, const string& filename) {
 
 }
 
-//lee las primeras 3 letras del archivo y las guarda en un string
-void OptenerMeses(ifstream& archivo, vector<string>& meses){
-    string linea;
-    string mes;
-    while (getline(archivo, linea))
-    {
-        mes = linea.substr(0, 3);
-        meses.push_back(mes);
-    }
-        for (int i = 0; i < meses.size(); i++)
-    {
-        cout << meses[i] << endl;
-    }
-}
+
 
 
 int main()
@@ -146,7 +133,7 @@ int main()
     // Lee el archivo línea por línea y almacena los datos en un vector de enteros de los dias
     string linea;
     int dia;
-    int n = 0;
+    string mes;
     vector<int> dias;
     while (getline(archivo, linea))
     {
@@ -156,13 +143,18 @@ int main()
 
     // se llama a la funcion que lee los meses y los guarda en un vector de enteros
     vector<string> meses;
-    OptenerMeses(archivo, meses);
+    while (getline(archivo, linea))
+    {
+        mes = stoi(linea.substr(0, 3));
+        meses.push_back(mes);
+    }
 
 
 
     
     // procedemos a ordenar el vector de enteros con el algoritmo de ordenamiento mergesort
     MergeyGuarda(dias, "nuevaBitacora.txt");
+    MergeyGuarda(meses, "nuevoMes.txt");
 
 
 
