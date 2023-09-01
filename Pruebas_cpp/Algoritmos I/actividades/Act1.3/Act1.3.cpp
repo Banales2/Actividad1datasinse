@@ -79,7 +79,7 @@ void mergeSort(std::vector<int>& dia, int izq, int derecha) {
         merge(dia, izq, medio, derecha);
     }
 }
-
+//sed
 int numeroMes(string mes){
     if (mes == "Jan"){
         return 1;
