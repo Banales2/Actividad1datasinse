@@ -80,6 +80,46 @@ void mergeSort(std::vector<int>& dia, int izq, int derecha) {
     }
 }
 
+int numeroMes(string mes){
+    if (mes == "Jan"){
+        return 1;
+    }
+    if (mes == "Feb"){
+        return 2;
+    }
+    if (mes == "Mar"){
+        return 3;
+    }
+    if (mes == "Apr"){
+        return 4;
+    }
+    if (mes == "May"){
+        return 5;
+    }
+    if (mes == "Jun"){
+        return 6;
+    }
+    if (mes == "Jul"){
+        return 6;
+    }
+    if (mes == "Aug"){
+        return 8;
+    }
+    if (mes == "Sep"){
+        return 9;
+    }
+    if (mes == "Oct"){
+        return 10;
+    }
+    if (mes == "Nov"){
+        return 11;
+    }
+    if (mes == "Dic"){
+        return 12;
+    }
+    return 0;
+}
+
 // Función principal para ordenar el vector y guardar en un archivo de texto
 void MergeyGuarda(const std::vector<int>& dias, const string& filename) {
     // Hacer una copia del vector de entrada para no modificarlo
@@ -135,20 +175,15 @@ int main()
     int dia;
     string mes;
     vector<int> dias;
+    vector<int> meses;
     while (getline(archivo, linea))
     {
-        dia = stoi(linea.substr(4, 2));
+        dia = stoi(linea.substr(6, 3));
+        mes = linea.substr(0,3);
         dias.push_back(dia);
+        dia = numeroMes(mes);
+        meses.push_back(dia);
     }
-
-    // se llama a la funcion que lee los meses y los guarda en un vector de enteros
-    vector<string> meses;
-    while (getline(archivo, linea))
-    {
-        mes = stoi(linea.substr(0, 3));
-        meses.push_back(mes);
-    }
-
 
 
     
